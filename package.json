@@ -1,0 +1,19 @@
+{
+  "name": "roblox-ban-web-server",
+  "version": "1.0.0",
+  "description": "Web server to handle ban requests from Discord bot and communicate with Roblox",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
