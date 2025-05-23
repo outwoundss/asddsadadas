@@ -1,0 +1,19 @@
+{
+  "name": "my-roblox-project",
+  "version": "1.0.0",
+  "description": "A project to search Roblox users and display their friends",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "16.x"
+  },
+  "author": "",
+  "license": "ISC"
+}
