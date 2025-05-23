@@ -25,8 +25,9 @@ module.exports = async (req, res) => {
             const friendsResponse = await axios.get(`https://friends.roblox.com/v1/users/${userId}/friends`);
             console.log('Friends response:', friendsResponse.data);
 
-            // Extract friends' names (not usernames)
+            // Extract friends' names and ids
             const friends = friendsResponse.data.data.map(friend => ({
+                id: friend.id,  // Ensure id is included
                 name: friend.name
             }));
 
