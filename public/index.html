@@ -72,7 +72,7 @@
                 const response = await fetch(`/api/friends?username=${username}`);
                 const data = await response.json();
 
-                console.log(data); // Log the response data to check its structure
+                console.log('Data from API:', data); // Log the API response
 
                 if (data.error) {
                     errorElement.textContent = data.error;
@@ -84,7 +84,7 @@
                     data.friends.forEach(friend => {
                         const li = document.createElement('li');
                         li.classList.add('friend-item');
-                        li.textContent = friend.username; // Display the friend's username
+                        li.textContent = friend.name;  // Use 'name' instead of 'username'
                         friendsListElement.appendChild(li);
                     });
                 } else {
