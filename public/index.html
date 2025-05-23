@@ -33,6 +33,12 @@
             list-style-type: none;
             text-align: left;
         }
+        .friend-item {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
         .error {
             color: red;
             font-weight: bold;
@@ -75,7 +81,8 @@
                 if (data.friends && data.friends.length > 0) {
                     data.friends.forEach(friend => {
                         const li = document.createElement('li');
-                        li.textContent = friend.username;
+                        li.classList.add('friend-item');
+                        li.textContent = friend.username; // Display the friend's username
                         friendsListElement.appendChild(li);
                     });
                 } else {
@@ -83,6 +90,7 @@
                 }
             } catch (error) {
                 errorElement.textContent = "An error occurred while fetching data.";
+                console.error('Error fetching data:', error);
             }
         }
     </script>
