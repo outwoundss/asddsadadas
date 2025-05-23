@@ -39,6 +39,13 @@
             margin: 5px 0;
             border-radius: 4px;
         }
+        .friend-item a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .friend-item a:hover {
+            text-decoration: underline;
+        }
         .error {
             color: red;
             font-weight: bold;
@@ -84,7 +91,14 @@
                     data.friends.forEach(friend => {
                         const li = document.createElement('li');
                         li.classList.add('friend-item');
-                        li.textContent = friend.name;  // Use 'name' instead of 'username'
+                        
+                        // Create the anchor tag for the friend's name
+                        const link = document.createElement('a');
+                        link.href = `https://www.roblox.com/users/${friend.id}/profile`;  // Link to Roblox profile
+                        link.target = '_blank'; // Open in a new tab
+                        link.textContent = friend.name;  // Display the friend's name
+                        
+                        li.appendChild(link);  // Append the link to the list item
                         friendsListElement.appendChild(li);
                     });
                 } else {
