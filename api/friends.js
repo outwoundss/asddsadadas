@@ -9,7 +9,6 @@ module.exports = async (req, res) => {
         }
 
         try {
-            // Log to see if the username is being passed correctly
             console.log(`Searching for username: ${username}`);
 
             // Search for the user by username
@@ -19,14 +18,16 @@ module.exports = async (req, res) => {
             if (userResponse.data.data.length === 0) {
                 return res.status(404).json({ error: "User not found" });
             }
+
             const userId = userResponse.data.data[0].id;
 
             // Fetch the user's friends list
             const friendsResponse = await axios.get(`https://friends.roblox.com/v1/users/${userId}/friends`);
             console.log('Friends response:', friendsResponse.data);
 
+            // Extract friends' names (not usernames)
             const friends = friendsResponse.data.data.map(friend => ({
-                username: friend.username
+                name: friend.name
             }));
 
             return res.status(200).json({ friends });
