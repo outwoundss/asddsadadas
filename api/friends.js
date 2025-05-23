@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
             // Log to see if the username is being passed correctly
             console.log(`Searching for username: ${username}`);
 
+            // Search for the user by username
             const userResponse = await axios.get(`https://users.roblox.com/v1/users/search?keyword=${username}`);
             console.log('User search response:', userResponse.data);
 
@@ -20,6 +21,7 @@ module.exports = async (req, res) => {
             }
             const userId = userResponse.data.data[0].id;
 
+            // Fetch the user's friends list
             const friendsResponse = await axios.get(`https://friends.roblox.com/v1/users/${userId}/friends`);
             console.log('Friends response:', friendsResponse.data);
 
