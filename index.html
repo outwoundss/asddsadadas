@@ -62,8 +62,8 @@
             }
 
             try {
-                // Send the username to the backend
-                const response = await fetch(`/getFriends?username=${username}`);
+                // Send the username to the Vercel backend API
+                const response = await fetch(`/api/friends?username=${username}`);
                 const data = await response.json();
 
                 if (data.error) {
